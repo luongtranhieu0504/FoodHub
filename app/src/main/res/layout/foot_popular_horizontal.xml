@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="154.43dp"
+    android:layout_height="216dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView3"
+    android:layout_marginEnd="30dp"
+    android:background="#ffffff"
+    app:cardCornerRadius="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="160dp">
+
+            <ImageView
+                android:id="@+id/img_foot_popular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/price_food_img1" />
+
+            <ImageButton
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_alignParentEnd="true"
+                android:background="@color/transparent"
+                android:src="@drawable/icon_heart"
+                android:contentDescription="heart"/>
+
+
+                <TextView
+                    android:id="@+id/txt_price"
+                    android:background="@drawable/price_br_design"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginStart="11dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="$5.50"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/tt_commons_bold"
+                    android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txt_rate_popular"
+                android:layout_alignParentStart="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="135dp"
+                android:elevation="4dp"
+                android:background="@drawable/price_br_design"
+                android:drawableRight="@drawable/icon_start"
+                android:drawablePadding="6dp"
+                android:fontFamily="@font/tt_commons_bold"
+                android:paddingStart="8dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="2dp"
+                android:text="4.5"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+        <TextView
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
+            android:id="@+id/txt_popular_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/salmon_salad"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
+            android:id="@+id/txt_popular_subname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/baked_salmon_fish"
+            android:textColor="#9796A1"
+            android:fontFamily="@font/sofiapro_light"
+            android:textSize="12sp"
+            />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
