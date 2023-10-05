@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView2"
+    android:layout_width="266dp"
+    android:layout_height="229dp"
+    android:layout_marginEnd="30dp"
+    android:background="#ffffff"
+    app:cardCornerRadius="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_foot_featured"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/food_img1" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@color/transparent"
+                android:src="@drawable/icon_heart"
+                android:contentDescription="heart"/>
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_featured_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:drawableRight="@drawable/icon_legit"
+                android:drawablePadding="5dp"
+                android:text="@string/mcdonald_s"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_shipper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:drawableStart="@drawable/icon_ship"
+                    android:drawablePadding="7dp"
+                    android:text="@string/free_delivery"
+                    android:textColor="#7E8392" />
+
+                <TextView
+                    android:id="@+id/txt_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="20dp"
+                    android:drawableStart="@drawable/icon_time"
+                    android:drawablePadding="7dp"
+                    android:text="10-15 mins"
+                    android:textColor="#7E8392" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                android:drawableStart="@drawable/icon_start"
+                android:drawablePadding="7dp"
+                android:text="4.5 (25+)"
+                android:textColor="#7E8392" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

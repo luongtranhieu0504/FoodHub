@@ -1,3 +1,41 @@
 <resources>
     <string name="app_name">FoodHub</string>
+    <string name="welcome_to_foodhub">Welcome to FoodHub</string>
+    <string name="hint">Your favourite foods delivered \nfast at your door.</string>
+    <string name="default_web_client_id">hello</string>
+
+    <string name="facebook_app_id">839412381023455</string>
+    <string name="fb_login_protocol_scheme">fb839412381023455</string>
+    <string name="facebook_client_token">56789</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="my_orders">My Orders</string>
+    <string name="my_profile">My Profile</string>
+    <string name="delivery_address">Delivery Address</string>
+    <string name="payment_methods">Payment Methods</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="settings">Settings</string>
+    <string name="helps_faqs">Helps FAQs</string>
+    <string name="what_would_you_like_to_order_string">What would you like to order</string>
+    <string name="_4102_pretty_view_lane_string">4102  Pretty View Lane </string>
+    <string name="deliver_to_string">Deliver to</string>
+    <string name="find_for_food_or_restaurant">Find for food or restaurant...</string>
+    <string name="featured_restaurants">Featured Restaurants</string>
+    <string name="mcdonald_s">McDonald’s</string>
+    <string name="free_delivery">Free delivery</string>
+    <string name="salmon_salad">Salmon Salad</string>
+    <string name="baked_salmon_fish">Baked salmon fish</string>
+
+
 </resources>

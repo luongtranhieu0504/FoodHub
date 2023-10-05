@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="4dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="14dp"
+    app:cardCornerRadius="10dp"
+    android:background="#67666D">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/img_berger"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icon_hamberger"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/txt_berger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="burger"/>
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
