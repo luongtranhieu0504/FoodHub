@@ -124,10 +124,8 @@
             android:textColor="#111719"
             android:textStyle="bold" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_order_cancel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_order_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
@@ -135,12 +133,14 @@
             android:background="@drawable/btn_design"
             android:paddingStart="50dp"
             android:paddingEnd="50dp"
-            android:text="Cancel" />
+            android:text="Cancel"
+            app:backgroundTint="@null"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_order_time" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_checkout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_order_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -151,7 +151,10 @@
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
             android:text="Track Order"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_order_time" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

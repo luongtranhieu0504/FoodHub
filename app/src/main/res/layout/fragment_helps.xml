@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
     tools:context=".ui.HelpsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/menu"
+        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:hint="selection">
 
-</FrameLayout>
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:inputType="none"
+            android:popupBackground="@null"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+</RelativeLayout>

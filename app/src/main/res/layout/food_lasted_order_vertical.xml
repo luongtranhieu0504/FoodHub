@@ -80,7 +80,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_order_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,10 +90,12 @@
             android:paddingStart="50dp"
             android:paddingEnd="50dp"
             android:text="Cancel"
+            android:textColor="@color/black"
+            app:backgroundTint="@null"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_lasted_order_state" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_order_reorder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -106,6 +108,7 @@
             android:paddingEnd="30dp"
             android:text="Track Order"
             android:textColor="@color/white"
+            app:backgroundTint="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_lasted_order_state" />
 

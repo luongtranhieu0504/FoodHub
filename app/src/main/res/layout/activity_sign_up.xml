@@ -143,30 +143,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:layout_gravity="center"
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_sign_up"
             android:layout_width="248dp"
             android:layout_height="60dp"
+            android:layout_gravity="center"
             android:background="@drawable/btn_sign_up_design"
             android:fontFamily="@font/sofiapro_light"
             android:text="SIGN UP"
             android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:backgroundTint="@null" />
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="680dp"
+        android:layout_marginTop="665dp"
         android:layout_marginEnd="60dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_facebook"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
@@ -181,9 +182,11 @@
             android:text="FACEBOOK"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_google"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
@@ -197,8 +200,9 @@
             android:text="GOOGLE"
             android:textAlignment="center"
             android:textColor="@color/black"
+            android:textSize="11sp"
             android:textStyle="bold"
-            />
+            app:backgroundTint="@null" />
 
     </LinearLayout>
 
