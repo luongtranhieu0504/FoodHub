@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         foodPopularHorizontalRec = findViewById(R.id.food_popular_res_hor);
         foodPopularHorModelList = new ArrayList<>();
         foodPopularHorModelList.add(new FoodPopularHorModel(R.drawable.price_food_img1,"$5.50","4.5","Salmon Salad","Baked salmon fish"));
-        foodPopularHorModelList.add(new FoodPopularHorModel(R.drawable.price_food_img2,"S8.25","4.5","Salmon Salad","Baked salmon fish\""));
+        foodPopularHorModelList.add(new FoodPopularHorModel(R.drawable.price_food_img2,"S8.25","4.5","Salmon Salad","Baked salmon fish"));
 
         foodPopularHorAdapter = new FoodPopularHorAdapter(this,foodPopularHorModelList);
         foodPopularHorizontalRec.setAdapter(foodPopularHorAdapter);

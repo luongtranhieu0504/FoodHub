@@ -2,13 +2,26 @@ package com.hieult.foodhub.ui;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.hieult.foodhub.R;
+import com.hieult.foodhub.adapters.FoodCategoryAdapter;
+import com.hieult.foodhub.adapters.LastedOrderVerAdapter;
+import com.hieult.foodhub.adapters.OrderVerAdapter;
+import com.hieult.foodhub.model.FoodPopularHorModel;
+import com.hieult.foodhub.model.LastedOrdersVerModel;
+import com.hieult.foodhub.model.OrdersVerModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +38,13 @@ public class MyOrdersFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    RecyclerView orderVerRec;
+    List<OrdersVerModel> ordersVerModelList;
+    OrderVerAdapter orderVerAdapter;
+
+    RecyclerView lastedOrderVerRec;
+    List<LastedOrdersVerModel> lastedOrdersVerModelList;
+    LastedOrderVerAdapter lastedOrderVerAdapter;
 
     public MyOrdersFragment() {
         // Required empty public constructor
@@ -62,5 +82,31 @@ public class MyOrdersFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_my_orders, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        orderVerRec = view.findViewById(R.id.order_vertical_rec);
+        ordersVerModelList = new ArrayList<>();
+        ordersVerModelList.add(new OrdersVerModel(R.drawable.img_stabuck,"3 items","#264100","Starbuck ","25","Food on the way"));
+        orderVerAdapter = new OrderVerAdapter(getContext(),ordersVerModelList);
+        orderVerRec.setAdapter(orderVerAdapter);
+        orderVerRec.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false));
+        orderVerRec.setHasFixedSize(true);
+        orderVerRec.setNestedScrollingEnabled(false);
+
+        lastedOrderVerRec = view.findViewById(R.id.lasted_order_vertical_rec);
+        lastedOrdersVerModelList = new ArrayList<>();
+        lastedOrdersVerModelList.add(new LastedOrdersVerModel(R.drawable.img_jimmy_john,"20 Jun, 10:30","3 Items","$17.10","Jimmy John’s","Order Delivered"));
+        lastedOrdersVerModelList.add(new LastedOrdersVerModel(R.drawable.img_stabuck,"19 Jun, 11:50","2 Items","$20.50","Subway","Order Delivered"));
+        lastedOrderVerAdapter = new LastedOrderVerAdapter(getContext(),lastedOrdersVerModelList);
+        lastedOrderVerRec.setAdapter(lastedOrderVerAdapter);
+        lastedOrderVerRec.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false));
+        lastedOrderVerRec.setHasFixedSize(true);
+        lastedOrderVerRec.setNestedScrollingEnabled(false);
+
+
     }
 }
