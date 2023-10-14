@@ -134,7 +134,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_rating" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
+            android:id="@+id/edit_text_rating"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -156,17 +156,17 @@
             android:id="@+id/btn_submit_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/btn_sign_up_design"
-            android:text="SUBMIT"
             android:paddingStart="90dp"
             android:paddingTop="14dp"
-            android:paddingBottom="14dp"
             android:paddingEnd="90dp"
+            android:paddingBottom="14dp"
+            android:text="SUBMIT"
             app:backgroundTint="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_text_rating" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
