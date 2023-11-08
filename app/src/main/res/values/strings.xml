@@ -38,6 +38,21 @@
     <string name="baked_salmon_fish">Baked salmon fish</string>
     <string name="write_your_review">Write your review...</string>
     <string name="comment1">Really convenient and the points system helps benefit loyalty. Some mild glitches here and there, but nothing too egregious. Obviously needs to roll out to more remote.</string>
+    <string name="state">state</string>
+    <string name="select_state">select State</string>
+
+    <string-array name="address_types">
+        <item>Home</item>
+        <item>Work</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="us_cities">
+        <item>New York, NY</item>
+        <item>Los Angeles, CA</item>
+        <item>Chicago, IL</item>
+        <item>Houston, TX</item>
+        <item>Phoenix, AZ</item>
+    </string-array>
 
 
 </resources>

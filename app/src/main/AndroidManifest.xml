@@ -16,24 +16,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodHub"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.ReviewsActivity"
-            android:exported="false" />
+            android:name=".activity.PaymentTestActivity"
+            android:exported="true">
+        </activity>
         <activity
-            android:name=".RatingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AddAddressActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.FoodDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.FoodHub.NoActionBar">
+            android:name=".activity.PaymentMethodActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,10 +32,54 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FacebookActivity"
+            android:name=".activity.ChooseAddressActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".activity.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SearchActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.NotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.FavoritesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MyProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MyOrdersActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.ReviewsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.RatingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AddAddressActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".activity.FoodDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.FoodHub.NoActionBar"></activity>
+        <activity
+            android:name=".activity.FacebookActivity"
             android:exported="false"
             android:label="Facebook"
-            android:parentActivityName=".WelcomeActivity" />
+            android:parentActivityName=".activity.WelcomeActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -54,16 +89,16 @@
             android:value="@string/facebook_client_token" />
 
         <activity
-            android:name=".GoogleActivity"
+            android:name=".activity.GoogleActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".activity.SignUpActivity"
             android:exported="true" />
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".activity.WelcomeActivity"
             android:exported="true" />
         <activity
             android:name="com.facebook.FacebookActivity"

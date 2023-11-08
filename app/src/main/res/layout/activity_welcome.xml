@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".WelcomeActivity">
+    tools:context=".activity.WelcomeActivity">
 
 
     <ImageView
@@ -162,12 +162,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/btn_email_phone"
+            android:id="@+id/btn_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_ep_design"
             android:fontFamily="@font/sofiapro_light"
-            android:text="Start with email or phone"
+            android:text="Start with email"
+            android:onClick="registerEmail"
             android:textColor="@color/white" />
     </FrameLayout>
 
@@ -207,6 +208,7 @@
                 android:layout_marginEnd="30dp"
                 android:fontFamily="@font/sofiapro_light"
                 android:text="Sign in"
+                android:onClick="Login"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />

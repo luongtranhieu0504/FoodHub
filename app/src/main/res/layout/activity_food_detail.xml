@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.FoodDetailActivity">
+    android:backgroundTint="#85FCFCFD"
+    tools:context=".activity.FoodDetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,24 +23,24 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView2"
-                android:background="@color/transparent"
+                android:id="@+id/img_food_detail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="190dp"
+                android:background="@color/transparent"
                 android:contentDescription="food detail"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 android:src="@drawable/food_detail"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/btn_back"
+                android:id="@+id/btn_detail_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@tools:sample/avatars"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:onClick="btnBack"
                 app:srcCompat="@drawable/btn_back_img" />
 
             <ImageView
@@ -47,13 +48,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:src="@tools:sample/avatars"
+                android:layout_marginEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_heart" />
+                app:srcCompat="@drawable/icon_heart_outline"
+                android:visibility="invisible"/>
+
+            <CheckBox
+                android:id="@+id/cb_favorite"
+                style="@style/RedCheckboxStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:buttonTint="@color/light_orange_color"
+                android:textColorLink="@color/light_orange_color"
+                android:textCursorDrawable="@drawable/sl_favorite_24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/txt_food_detail_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -62,7 +76,7 @@
                 android:textSize="22sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                app:layout_constraintTop_toBottomOf="@+id/img_food_detail" />
 
             <LinearLayout
                 android:id="@+id/linearLayout5"
@@ -71,10 +85,10 @@
                 android:layout_marginTop="12dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView8">
+                app:layout_constraintTop_toBottomOf="@id/txt_food_detail_name">
 
                 <TextView
-                    android:id="@+id/txt_rate"
+                    android:id="@+id/txt_food_detail_rate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
@@ -118,12 +132,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
                 <TextView
-                    android:id="@+id/txt_price"
+                    android:id="@+id/txt_price_cart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableStart="@drawable/img_$"
-                    android:text="9.50"
+                    android:text="$9.50"
                     android:textColor="@color/light_orange_color"
                     android:textSize="21sp"
                     android:textStyle="bold" />
@@ -135,11 +148,10 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/btn_minus"
+                        android:id="@+id/btn_minus_cart"
                         android:layout_width="30.6dp"
                         android:layout_height="30.6dp"
                         android:layout_weight="1"
-                        android:src="@tools:sample/avatars"
                         app:srcCompat="@drawable/icon_minus" />
 
                     <TextView
@@ -152,17 +164,16 @@
                         android:text="02" />
 
                     <ImageView
-                        android:id="@+id/btn_plus"
+                        android:id="@+id/btn_plus_cart"
                         android:layout_width="30.6dp"
                         android:layout_height="30.6dp"
                         android:layout_weight="1"
-                        android:src="@tools:sample/avatars"
                         app:srcCompat="@drawable/icon_plus" />
                 </LinearLayout>
             </LinearLayout>
 
             <TextView
-                android:id="@+id/txt_food_content_detai"
+                android:id="@+id/txt_food_detail_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="21dp"
@@ -180,7 +191,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_food_content_detai" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_food_detail_content" />
 
             <LinearLayout
                 android:id="@+id/linearLayout8"
@@ -212,16 +223,18 @@
                         android:text="Pepper Julienned" />
 
                     <TextView
+                        android:id="@+id/txt_add_price1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="7dp"
                         android:text="+$2.30"
                         android:textColor="@color/black" />
 
-                    <RadioButton
+                    <CheckBox
                         android:id="@+id/rd_choice_add1"
                         android:layout_width="50dp"
-                        android:layout_height="50dp" />
+                        android:layout_height="50dp"
+                        android:enabled="true"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -247,16 +260,18 @@
                         android:text="Baby Spinach" />
 
                     <TextView
+                        android:id="@+id/txt_add_price2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="7dp"
                         android:text="+$4.70"
                         android:textColor="@color/black" />
 
-                    <RadioButton
+                    <CheckBox
                         android:id="@+id/rd_choice_add2"
                         android:layout_width="50dp"
-                        android:layout_height="50dp" />
+                        android:layout_height="50dp"
+                        android:enabled="true" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -282,25 +297,27 @@
                         android:text="Masroom" />
 
                     <TextView
+                        android:id="@+id/txt_add_price3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="7dp"
                         android:text="+$2.50"
                         android:textColor="@color/black" />
 
-                    <RadioButton
+                    <CheckBox
                         android:id="@+id/rd_choice_add3"
                         android:layout_width="50dp"
-                        android:layout_height="50dp" />
+                        android:layout_height="50dp"
+                        android:enabled="true" />
                 </LinearLayout>
 
             </LinearLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button2"
+            <Button
+                android:id="@+id/btn_add_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/btn_sign_up_design"
                 android:drawableStart="@drawable/background_icon_cart"
                 android:drawablePadding="12dp"

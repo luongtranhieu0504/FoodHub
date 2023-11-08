@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.hieult.foodhub.R;
 import com.hieult.foodhub.model.FoodPopularHorModel;
 
@@ -19,6 +20,7 @@ public class FoodCategoryAdapter extends RecyclerView.Adapter<FoodCategoryAdapte
 
     Context context;
     List<FoodPopularHorModel> list;
+    private FoodCartVerAdapter.OnItemClickListener onItemClickListener;
 
     public FoodCategoryAdapter(Context context, List<FoodPopularHorModel> list) {
         this.context = context;
@@ -33,11 +35,24 @@ public class FoodCategoryAdapter extends RecyclerView.Adapter<FoodCategoryAdapte
 
     @Override
     public void onBindViewHolder(@NonNull FoodCategoryAdapter.ViewHolder holder, int position) {
-        holder.imageView.setImageResource(list.get(position).getImage());
         holder.name.setText(list.get(position).getName());
         holder.rate.setText(list.get(position).getRate());
         holder.price.setText(list.get(position).getPrice());
-        holder.subName.setText(list.get(position).getSubName());
+        Glide.with(holder.imageView.getContext())
+                .load(list.get(position).getImage())
+                .placeholder(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark)
+                .error(com.google.firebase.database.R.drawable.common_google_signin_btn_icon_dark)
+                .into(holder.imageView);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(position);
+                    notifyDataSetChanged();
+                }
+            }
+        });
+
     }
 
     @Override
@@ -51,7 +66,6 @@ public class FoodCategoryAdapter extends RecyclerView.Adapter<FoodCategoryAdapte
         TextView price;
         TextView rate;
         TextView name;
-        TextView subName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,8 +73,14 @@ public class FoodCategoryAdapter extends RecyclerView.Adapter<FoodCategoryAdapte
             price = itemView.findViewById(R.id.txt_price_category);
             rate = itemView.findViewById(R.id.txt_rate_category);
             name = itemView.findViewById(R.id.txt_category_name);
-            subName = itemView.findViewById(R.id.txt_category_subname);
         }
+    }
+    public void setOnItemClickListener(FoodCartVerAdapter.OnItemClickListener listener) {
+        this.onItemClickListener = listener;
+    }
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
     }
 }
 

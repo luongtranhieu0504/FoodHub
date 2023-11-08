@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.hieult.foodhub.R;
 import com.hieult.foodhub.model.FoodPopularHorModel;
 
@@ -32,11 +33,15 @@ public class FoodPopularHorAdapter extends RecyclerView.Adapter<FoodPopularHorAd
 
     @Override
     public void onBindViewHolder(@NonNull FoodPopularHorAdapter.ViewHolder holder, int position) {
-        holder.imageView.setImageResource(list.get(position).getImage());
         holder.name.setText(list.get(position).getName());
         holder.rate.setText(list.get(position).getRate());
         holder.price.setText(list.get(position).getPrice());
-        holder.subName.setText(list.get(position).getSubName());
+        Glide.with(holder.imageView.getContext())
+                .load(list.get(position).getImage())
+                .placeholder(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark)
+                .error(com.google.firebase.database.R.drawable.common_google_signin_btn_icon_dark)
+                .into(holder.imageView);
+
     }
 
     @Override
@@ -50,15 +55,14 @@ public class FoodPopularHorAdapter extends RecyclerView.Adapter<FoodPopularHorAd
         TextView price;
         TextView rate;
         TextView name;
-        TextView subName;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.img_foot_popular);
-            price = itemView.findViewById(R.id.txt_price);
+            price = itemView.findViewById(R.id.txt_price_cart);
             rate = itemView.findViewById(R.id.txt_rate_popular);
             name = itemView.findViewById(R.id.txt_popular_name);
-            subName = itemView.findViewById(R.id.txt_popular_subname);
         }
     }
 }

@@ -8,8 +8,9 @@
     android:theme="@style/ThemeOverlay.AppCompat.Light">
 
     <ImageView
+        android:paddingTop="30dp"
         android:layout_width="118dp"
-        android:layout_height="91dp"
+        android:layout_height="80dp"
         android:scaleType="centerCrop"
         android:src="@drawable/mask_group" />
 

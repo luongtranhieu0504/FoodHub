@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".activity.SignUpActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -63,7 +63,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/text_field_design"
             android:ems="10"
-            android:hint="Name"
+            android:hint="User Name"
             android:inputType="text"
             android:paddingStart="24dp" />
     </LinearLayout>
@@ -89,7 +89,7 @@
             android:textColor="#9796A1" />
 
         <EditText
-            android:id="@+id/txt_email"
+            android:id="@+id/txt_register_email"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_marginTop="12dp"
@@ -121,7 +121,7 @@
             android:textColor="#9796A1" />
 
         <EditText
-            android:id="@+id/txt_password"
+            android:id="@+id/txt_register_password"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_marginTop="12dp"
@@ -137,13 +137,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="62dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="550dp"
         android:layout_marginEnd="62dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/btn_sign_up"
             android:layout_width="248dp"
             android:layout_height="60dp"
@@ -158,99 +158,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="665dp"
-        android:layout_marginEnd="60dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_facebook"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/btn_design"
-            android:drawableLeft="@drawable/icon_facebook"
-            android:fontFamily="@font/sofiapro_light"
-            android:paddingLeft="12dp"
-            android:paddingTop="13dp"
-            android:paddingBottom="11.3dp"
-            android:text="FACEBOOK"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="11sp"
-            android:textStyle="bold"
-            app:backgroundTint="@null" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_google"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/btn_design"
-            android:drawableLeft="@drawable/icon_google"
-            android:fontFamily="@font/sofiapro_light"
-            android:paddingLeft="12dp"
-            android:paddingTop="13dp"
-            android:paddingBottom="11.3dp"
-            android:text="GOOGLE"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="11sp"
-            android:textStyle="bold"
-            app:backgroundTint="@null" />
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="640dp"
-        android:layout_marginEnd="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <View
-            android:layout_width="84dp"
-            android:layout_height="1dp"
-            android:layout_gravity="start"
-            android:layout_marginTop="10dp"
-            android:alpha="0.5"
-            android:background="#B3B3B3" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/sofiapro_light"
-            android:text="Sign in with"
-            android:textColor="#5B5B5E" />
-
-        <View
-            android:layout_width="89dp"
-            android:layout_height="1dp"
-            android:layout_gravity="end"
-            android:layout_marginTop="10dp"
-            android:alpha="0.5"
-            android:background="#B3B3B3" />
-
-    </FrameLayout>
-
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="620dp"
         android:layout_marginEnd="60dp"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -265,19 +177,21 @@
             android:textColor="@color/black"
             android:textSize="15sp" />
 
-        <Space
+        <androidx.legacy.widget.Space
             android:layout_width="3dp"
             android:layout_height="0dp" />
 
         <TextView
             android:id="@+id/txt_login"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginEnd="30dp"
             android:fontFamily="@font/sofiapro_light"
+            android:onClick="login"
+            android:paddingTop="10dp"
             android:text="Login"
             android:textColor="#FE724C"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
 

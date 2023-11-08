@@ -1,6 +1,7 @@
 package com.hieult.foodhub.adapters;
 
-import android.content.Context;
+
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,55 +11,87 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.hieult.foodhub.R;
 import com.hieult.foodhub.model.FeaturedResHorModel;
 
 import java.util.List;
+import java.util.zip.Inflater;
 
-public class FeaturedResHorAdapter extends RecyclerView.Adapter<FeaturedResHorAdapter.ViewHolder> {
+public class FeaturedResHorAdapter extends FirebaseRecyclerAdapter<FeaturedResHorModel,FeaturedResHorAdapter.MyViewHolder> {
 
-    Context context;
-    List<FeaturedResHorModel> list;
+    /**
+     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
+     * {@link FirebaseRecyclerOptions} for configuration options.
+     *
+     * @param options
+     */
+    private OnItemClickListener onItemClickListener;
+    public FeaturedResHorAdapter(@NonNull FirebaseRecyclerOptions options) {
+        super(options);
+    }
 
-    public FeaturedResHorAdapter(Context context, List<FeaturedResHorModel> list) {
-        this.context = context;
-        this.list = list;
+    @SuppressLint("RecyclerView")
+    @Override
+    protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull FeaturedResHorModel model) {
+        holder.name.setText(model.getName());
+        holder.delivery.setText(model.getDelivery());
+        holder.time.setText(model.getTime());
+        holder.rating.setText(model.getRating());
+        holder.description.setText(model.getDescription());
+        holder.price.setText(model.getPrice());
+        Glide.with(holder.img.getContext())
+                .load(model.getImage())
+                .placeholder(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark)
+                .error(com.google.firebase.database.R.drawable.common_google_signin_btn_icon_dark)
+                .into(holder.img);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onItemClickListener != null){
+                onItemClickListener.onItemClick(position);
+                notifyDataSetChanged();
+            }
+
+            }
+        });
     }
 
     @NonNull
     @Override
-    public FeaturedResHorAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.featured_restaurant_horizontal,parent,false));
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.featured_restaurant_horizontal,parent,false);
+        return new MyViewHolder(view);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull FeaturedResHorAdapter.ViewHolder holder, int position) {
-        holder.imageView.setImageResource(list.get(position).getImage());
-        holder.name.setText(list.get(position).getName());
-        holder.delivery.setText(list.get(position).getDelivery());
-        holder.time.setText(list.get(position).getTime());
-        holder.rate.setText(list.get(position).getRate());
-    }
+    class MyViewHolder extends RecyclerView.ViewHolder{
 
-    @Override
-    public int getItemCount() {
-        return list.size();
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
+        ImageView img;
         TextView name;
         TextView delivery;
         TextView time;
-        TextView rate;;
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
+        TextView rating;
+        TextView description;
+        TextView price;
 
-            imageView = itemView.findViewById(R.id.img_foot_featured);
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+            img = itemView.findViewById(R.id.img_foot_featured);
             name = itemView.findViewById(R.id.txt_featured_name);
             delivery = itemView.findViewById(R.id.txt_shipper);
             time = itemView.findViewById(R.id.txt_time);
-            rate = itemView.findViewById(R.id.txt_rate);
+            rating = itemView.findViewById(R.id.txt_featured_rate);
+            price = itemView.findViewById(R.id.txt_price);
+            description = itemView.findViewById(R.id.txt_description);
         }
+    }
+    public void setOnItemClickListener(FeaturedResHorAdapter.OnItemClickListener listener) {
+        this.onItemClickListener = listener;
+    }
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
     }
 }

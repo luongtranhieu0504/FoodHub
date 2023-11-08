@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_order"
             android:icon="@drawable/icon_document"
@@ -13,25 +12,37 @@
             android:icon="@drawable/profile"
             android:title="@string/my_profile" />
         <item
-            android:id="@+id/nav_delivery_address"
-            android:icon="@drawable/location"
-            android:title="@string/delivery_address" />
+            android:id="@+id/nav_favorite"
+            android:title="My favorite"
+            android:icon="@drawable/icon_favorite_24"/>
         <item
-            android:id="@+id/nav_payment"
-            android:icon="@drawable/wallet"
-            android:title="@string/payment_methods" />
+            android:id="@+id/nav_cart"
+            android:title="Cart"
+            android:icon="@drawable/baseline_shopping_cart_24"/>
         <item
-            android:id="@+id/nav_contact"
-            android:icon="@drawable/message"
-            android:title="@string/contact_us" />
-        <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/setting"
-            android:title="@string/settings" />
-        <item
-            android:id="@+id/nav_helps"
-            android:icon="@drawable/icon_helps"
-            android:title="@string/helps_faqs" />
-    </group>
+            android:id="@+id/nav_cards"
+            android:title="My Card"
+            android:icon="@drawable/baseline_credit_card_24"/>
+
+<!--        <item-->
+<!--            android:id="@+id/nav_delivery_address"-->
+<!--            android:icon="@drawable/location"-->
+<!--            android:title="@string/delivery_address" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_payment"-->
+<!--            android:icon="@drawable/wallet"-->
+<!--            android:title="@string/payment_methods" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_contact"-->
+<!--            android:icon="@drawable/message"-->
+<!--            android:title="@string/contact_us" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_settings"-->
+<!--            android:icon="@drawable/setting"-->
+<!--            android:title="@string/settings" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_helps"-->
+<!--            android:icon="@drawable/icon_helps"-->
+<!--            android:title="@string/helps_faqs" />-->
 
 </menu>

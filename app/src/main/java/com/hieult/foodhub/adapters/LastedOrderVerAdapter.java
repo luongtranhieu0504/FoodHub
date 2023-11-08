@@ -58,9 +58,9 @@ public class LastedOrderVerAdapter extends RecyclerView.Adapter<LastedOrderVerAd
             image = itemView.findViewById(R.id.img_lasted_order);
             items = itemView.findViewById(R.id.txt_lasted_order_items);
             price = itemView.findViewById(R.id.txt_lasted_order_price);
-            name = itemView.findViewById(R.id.txt_order_name);
+            name = itemView.findViewById(R.id.txt_lasted_order_name);
             date = itemView.findViewById(R.id.txt_lasted_order_date);
-            state = itemView.findViewById(R.id.txt_order_state1);
+            state = itemView.findViewById(R.id.txt_lasted_order_state);
         }
     }
 

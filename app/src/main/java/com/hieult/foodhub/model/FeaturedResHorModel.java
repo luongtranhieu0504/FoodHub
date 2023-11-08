@@ -1,25 +1,47 @@
 package com.hieult.foodhub.model;
 
 public class FeaturedResHorModel {
-    int image;
+    String image;
     String name;
-    String Delivery;
+    String delivery;
     String time;
-    String rate;
+    String rating;
+    String description;
+    String price;
 
-    public FeaturedResHorModel(int image, String name, String delivery, String time, String rate) {
+    public FeaturedResHorModel(){}
+
+    public FeaturedResHorModel(String image, String name, String delivery, String time, String rate, String description,String price) {
         this.image = image;
         this.name = name;
-        Delivery = delivery;
+        this.delivery = delivery;
         this.time = time;
-        this.rate = rate;
+        this.rating = rate;
+        this.description = description;
+        this.price = price;
     }
 
-    public int getImage() {
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -32,11 +54,11 @@ public class FeaturedResHorModel {
     }
 
     public String getDelivery() {
-        return Delivery;
+        return delivery;
     }
 
     public void setDelivery(String delivery) {
-        Delivery = delivery;
+        this.delivery = delivery;
     }
 
     public String getTime() {
@@ -47,11 +69,11 @@ public class FeaturedResHorModel {
         this.time = time;
     }
 
-    public String getRate() {
-        return rate;
+    public String getRating() {
+        return rating;
     }
 
-    public void setRate(String rate) {
-        this.rate = rate;
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }

@@ -2,8 +2,8 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardView2"
-    android:layout_width="266dp"
-    android:layout_height="229dp"
+    android:layout_width="290dp"
+    android:layout_height="240dp"
     android:layout_marginEnd="30dp"
     android:background="#ffffff"
     app:cardCornerRadius="15dp">
@@ -20,18 +20,18 @@
             <ImageView
                 android:id="@+id/img_foot_featured"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="136dp"
                 android:layout_gravity="center"
-                android:scaleType="fitCenter"
-                android:src="@drawable/food_img1" />
+                android:scaleType="fitXY"
+                android:src="@drawable/burger_image_1" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:background="@color/transparent"
-                android:src="@drawable/icon_heart"
-                android:contentDescription="heart"/>
+                android:contentDescription="heart"
+                android:src="@drawable/icon_heart" />
 
         </RelativeLayout>
 
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="13dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="12dp"
             android:orientation="vertical">
 
             <TextView
@@ -54,6 +54,16 @@
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/txt_shipper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:drawableStart="@drawable/icon_ship"
+                android:drawablePadding="7dp"
+                android:text="@string/free_delivery"
+                android:textColor="#7E8392" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,37 +71,42 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txt_shipper"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:drawableStart="@drawable/icon_ship"
-                    android:drawablePadding="7dp"
-                    android:text="@string/free_delivery"
-                    android:textColor="#7E8392" />
-
-                <TextView
                     android:id="@+id/txt_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:layout_marginStart="20dp"
                     android:drawableStart="@drawable/icon_time"
                     android:drawablePadding="7dp"
                     android:text="10-15 mins"
                     android:textColor="#7E8392" />
 
+                <TextView
+                    android:id="@+id/txt_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableStart="@drawable/baseline_price"
+                    android:layout_marginStart="20dp"
+                    android:text="$9.99" />
+
+                <TextView
+                    android:id="@+id/txt_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:visibility="gone"/>
+
             </LinearLayout>
 
             <TextView
-                android:id="@+id/txt_rate"
+                android:id="@+id/txt_featured_rate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:layout_marginTop="5dp"
                 android:drawableStart="@drawable/icon_start"
                 android:drawablePadding="7dp"
-                android:text="4.5 (25+)"
+                android:text="4.5"
                 android:textColor="#7E8392" />
         </LinearLayout>
     </LinearLayout>

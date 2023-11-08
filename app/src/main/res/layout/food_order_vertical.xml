@@ -4,8 +4,8 @@
     android:id="@+id/cardView4"
     android:layout_width="match_parent"
     android:layout_height="240dp"
-    android:layout_marginStart="20dp"
-    android:layout_marginEnd="20dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
     android:background="@drawable/btn_design"
     app:cardCornerRadius="20dp">
 
@@ -77,15 +77,16 @@
 
         <TextView
             android:id="@+id/textView34"
-            app:layout_constraintStart_toEndOf="@+id/txt_order_state"
-            app:layout_constraintTop_toBottomOf="@+id/txt_order_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="184dp"
             android:layout_marginTop="64dp"
             android:text="Now"
             android:textColor="#9796A1"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/txt_order_state1"
+            app:layout_constraintStart_toEndOf="@+id/txt_order_state"
+            app:layout_constraintTop_toBottomOf="@+id/txt_order_id" />
 
         <TextView
             android:id="@+id/txt_order_time"
@@ -124,22 +125,22 @@
             android:textColor="#111719"
             android:textStyle="bold" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/btn_order_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/btn_design"
-            android:paddingStart="50dp"
-            android:paddingEnd="50dp"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
             android:text="Cancel"
             app:backgroundTint="@null"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_order_time" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/btn_checkout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,9 +148,6 @@
             android:layout_marginEnd="18dp"
             android:background="@drawable/btn_sign_up_design"
             android:elevation="20dp"
-            android:padding="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
             android:text="Track Order"
             android:textColor="@color/white"
             app:backgroundTint="@null"

@@ -1,25 +1,23 @@
 package com.hieult.foodhub.model;
 
 public class FoodPopularHorModel {
-    int image;
+    String image;
     String price;
     String rate;
     String name;
-    String subName;
 
-    public FoodPopularHorModel(int image, String price, String rate, String name, String subName) {
+    public FoodPopularHorModel(String image, String price, String rate, String name) {
         this.image = image;
         this.price = price;
         this.rate = rate;
         this.name = name;
-        this.subName = subName;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -47,11 +45,4 @@ public class FoodPopularHorModel {
         this.name = name;
     }
 
-    public String getSubName() {
-        return subName;
-    }
-
-    public void setSubName(String subName) {
-        this.subName = subName;
-    }
 }

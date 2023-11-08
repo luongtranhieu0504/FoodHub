@@ -73,16 +73,16 @@ public class CategoryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        foodCategoryRec = view.findViewById(R.id.food_category_rec);
-        foodCategoryVerModelList = new ArrayList<>();
-        foodCategoryVerModelList.add(new FoodPopularHorModel(R.drawable.img_food_cate,"$10.35","4.5","Chicken Hawaiian","Chicken, Cheese and pineapple"));
-        foodCategoryVerModelList.add(new FoodPopularHorModel(R.drawable.img_food_cate2,"$10.35","4.5","Chicken Hawaiian","Chicken, Cheese and pineapple"));
-        foodCategoryVerModelList.add(new FoodPopularHorModel(R.drawable.img_food_cate3,"$10.35","4.5","Chicken Hawaiian","Chicken, Cheese and pineapple"));
-        foodCategoryAdapter = new FoodCategoryAdapter(getContext(),foodCategoryVerModelList);
-        foodCategoryRec.setAdapter(foodCategoryAdapter);
-        foodCategoryRec.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
-        foodCategoryRec.setHasFixedSize(true);
-        foodCategoryRec.setNestedScrollingEnabled(false);
+//        foodCategoryRec = view.findViewById(R.id.food_category_rec);
+//        foodCategoryVerModelList = new ArrayList<>();
+//        foodCategoryVerModelList.add(new FoodPopularHorModel(R.drawable.img_food_cate,"$10.35","4.5","Chicken Hawaiian","Chicken, Cheese and pineapple"));
+//        foodCategoryVerModelList.add(new FoodPopularHorModel(R.drawable.img_food_cate2,"$10.35","4.5","Chicken Hawaiian","Chicken, Cheese and pineapple"));
+//        foodCategoryVerModelList.add(new FoodPopularHorModel(R.drawable.img_food_cate3,"$10.35","4.5","Chicken Hawaiian","Chicken, Cheese and pineapple"));
+//        foodCategoryAdapter = new FoodCategoryAdapter(getContext(),foodCategoryVerModelList);
+//        foodCategoryRec.setAdapter(foodCategoryAdapter);
+//        foodCategoryRec.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
+//        foodCategoryRec.setHasFixedSize(true);
+//        foodCategoryRec.setNestedScrollingEnabled(false);
 
     }
 
