@@ -1,5 +1,7 @@
 package com.hieult.foodhub.activity;
 
+import static java.lang.Math.max;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,6 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hieult.foodhub.R;
+import com.hieult.foodhub.data.StateManager;
 
 public class FoodDetailActivity extends AppCompatActivity {
     TextView food_name, food_rate, food_price, food_content, number_order;
@@ -45,7 +48,6 @@ public class FoodDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_detail);
-
         int foodPosition = getIntent().getIntExtra("foodPosition", -1);
         String foodType = getIntent().getStringExtra("foodType");
         database = FirebaseDatabase.getInstance();
@@ -75,11 +77,6 @@ public class FoodDetailActivity extends AppCompatActivity {
             foodPrice = intent.getStringExtra("foodPrice");
             foodRate = intent.getStringExtra("foodRating");
             foodImageUrl = intent.getStringExtra("foodImage");
-            Log.d("MyData", "showFavorites: " + showFavorites);
-            Log.d("MyData", "foodName: " + foodName);
-            Log.d("MyData", "foodPrice: " + foodPrice);
-            Log.d("MyData", "foodRate: " + foodRate);
-            Log.d("MyData", "foodImage: " + foodImageUrl);
             Glide.with(getBaseContext()).load(foodImageUrl)
                     .into(food_image);
             food_name.setText(foodName);
@@ -122,7 +119,7 @@ public class FoodDetailActivity extends AppCompatActivity {
         btn_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numberOrder = numberOrder - 1;
+                numberOrder = max(0,numberOrder - 1);
                 number_order.setText("" + numberOrder);
                 numberCart = number_order.getText().toString();
             }
@@ -138,6 +135,7 @@ public class FoodDetailActivity extends AppCompatActivity {
                 foodCart.putExtra("foodPrice", newStringPrice);
                 foodCart.putExtra("foodImage", foodImageUrl);
                 foodCart.putExtra("foodNumberOrder", numberCart);
+                Toast.makeText(FoodDetailActivity.this,foodName,Toast.LENGTH_SHORT).show();
                 startActivity(foodCart);
             }
         });
@@ -145,13 +143,15 @@ public class FoodDetailActivity extends AppCompatActivity {
         cb_favorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                StateManager.getInstance().setFavorite(true);
+                SharedPreferences sharedPreferences = getSharedPreferences("MyFavorite", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("isFavorite", isChecked);
                 if (isChecked){
                     img_heart.setVisibility(buttonView.VISIBLE);
                     AnimationSet animationSet = new AnimationSet(true);
                     animationSet.addAnimation(AnimationUtils.loadAnimation(getBaseContext(),R.anim.heart_animation));
                     img_heart.startAnimation(animationSet);
-                    SharedPreferences sharedPreferences = getSharedPreferences("MyFavorite", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("foodName", foodName);
                     editor.putString("foodPrice", foodPrice);
                     editor.putString("foodImage", foodImageUrl);

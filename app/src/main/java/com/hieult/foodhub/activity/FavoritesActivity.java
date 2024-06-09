@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hieult.foodhub.R;
@@ -22,6 +24,7 @@ import java.util.List;
 
 public class FavoritesActivity extends AppCompatActivity {
     RecyclerView foodCategoryRec;
+    ImageView btn_back;
     List<FoodPopularHorModel> foodFavorVerModelList;
     FoodCategoryAdapter foodFaverAdapter;
     BottomNavigationView bottomNavigationView;
@@ -32,11 +35,12 @@ public class FavoritesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
         foodCategoryRec = findViewById(R.id.favorites_food_rec);
+        btn_back = findViewById(R.id.btn_favor_back);
         dbHelper = new DatabaseFavorHelper(this);
         SharedPreferences sharedPreferences = getSharedPreferences("MyFavorite",Context.MODE_PRIVATE);
-        foodName = sharedPreferences.getString("foodName","Hamburger");
+        foodName = sharedPreferences.getString("foodName","Chicken");
         foodPrice = sharedPreferences.getString("foodPrice","$8.80");
-        foodImage = sharedPreferences.getString("foodImage","Image Hamburger");
+        foodImage = sharedPreferences.getString("foodImage", "https://aeonmall-long-bien.com.vn/wp-content/uploads/2020/01/kfc3-750x468.jpg");
         foodRating = sharedPreferences.getString("foodRating","5.0");
         foodCategoryRec.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL,false));
         dbHelper.addToCart(foodName,foodPrice,foodImage,foodRating);
@@ -53,6 +57,13 @@ public class FavoritesActivity extends AppCompatActivity {
                 foodDetail3.putExtra("foodRating",foodFavorVerModelList.get(position).getRate());
                 foodDetail3.putExtra("showFavorites",true);
                 startActivity(foodDetail3);
+            }
+        });
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FavoritesActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 

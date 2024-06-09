@@ -10,8 +10,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -52,6 +54,7 @@ public class PaymentMethodActivity extends AppCompatActivity {
     RadioButton cardRd, cashRd;
     RadioGroup paymentMethod;
     Button btnNext;
+    ImageView btnBack;
 
     String PublishableKey = "pk_test_51O9TRUAH8wvxx7Hg3bF4m1aPLxoCyx4jFojgZhkOApUkrqdQnPPIhRNPCXQfYO4oInVY095fVejvEFho0TajMexi00rD6stjqJ";
     String SecretKey = "sk_test_51O9TRUAH8wvxx7Hg63AAyO380sHL4Jc6sTVcUTFSsDmbaGS4AO3mokCaXwCrLHdB7kptHau8OU42xEIV40FluP0400EL5osuGs";
@@ -59,6 +62,8 @@ public class PaymentMethodActivity extends AppCompatActivity {
     String EnphericalKey;
     String ClientSecret;
     PaymentSheet paymentSheet;
+    double cartTotal;
+
 
 
 
@@ -70,13 +75,21 @@ public class PaymentMethodActivity extends AppCompatActivity {
         cashRd = findViewById(R.id.rd_cash);
         btnNext = findViewById(R.id.btn_next);
         paymentMethod = findViewById(R.id.rdg_payment_method);
+        btnBack = findViewById(R.id.btn_payment_method_back);
         PaymentConfiguration.init(this,PublishableKey);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PaymentMethodActivity.this, PaymentActivity.class);
+                startActivity(intent);
+            }
+        });
         paymentSheet = new PaymentSheet(this, paymentSheetResult -> {
            onPaymentResult(paymentSheetResult);
         });
-//        SharedPreferences sharedPreferences = getSharedPreferences("PaymentMethod", Context.MODE_PRIVATE);
-//        amount = sharedPreferences.getFloat("cartTotal", 0);
-//        amountDouble = (double) amount;
+        SharedPreferences sharedPreferences = getSharedPreferences("PaymentMethod", Context.MODE_PRIVATE);
+        cartTotal = sharedPreferences.getFloat("cartTotal", 0);
+        Log.d("payment","carttotal: " + cartTotal );
         StringRequest request = new StringRequest(Request.Method.POST, "https://api.stripe.com/v1/customers",
                 new Response.Listener<String>() {
             @Override
@@ -134,6 +147,8 @@ public class PaymentMethodActivity extends AppCompatActivity {
 
     private void onPaymentResult(PaymentSheetResult paymentSheetResult) {
         if (paymentSheetResult instanceof PaymentSheetResult.Completed){
+            Intent intent = new Intent(PaymentMethodActivity.this, StateDeliveryActivity.class);
+            startActivity(intent);
             Toast.makeText(this,"Payment Success", Toast.LENGTH_SHORT).show();
         }
     }
@@ -210,7 +225,7 @@ public class PaymentMethodActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("customer",CustomerId);
-                params.put("amount","100"+"00");
+                params.put("amount",String.valueOf((int) (cartTotal * 100)));
                 params.put("currency","USD");
                 params.put("automatic_payment_methods[enabled]","true");
                 return params;

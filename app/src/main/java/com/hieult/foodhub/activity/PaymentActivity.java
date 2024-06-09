@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.hieult.foodhub.R;
+import com.stripe.android.model.PaymentMethod;
 
 public class PaymentActivity extends AppCompatActivity {
     CardView chooseAddress,payMethod;
@@ -33,6 +34,13 @@ public class PaymentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent1 = new Intent(PaymentActivity.this,CartActivity.class);
                 startActivity(intent1);
+            }
+        });
+        payMethod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PaymentActivity.this, PaymentMethodActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -18,6 +19,7 @@ import com.hieult.foodhub.data.HelperAddressClass;
 
 public class AddAddressActivity extends AppCompatActivity {
     EditText full_name,phone_number,address_title,street_home;
+    ImageView btn_back;
     AutoCompleteTextView auto_city,auto_address_type;
     Button save;
 
@@ -31,11 +33,13 @@ public class AddAddressActivity extends AppCompatActivity {
         street_home = findViewById(R.id.txt_street_home);
         auto_address_type = findViewById(R.id.auto_address_type);
         auto_city = findViewById(R.id.auto_city);
+        btn_back = findViewById(R.id.btn_back_address);
         save = findViewById(R.id.btn_save);
         ArrayAdapter<String> addressTypeAdapter = new ArrayAdapter<>(this,android.R.layout.simple_dropdown_item_1line, getResources().getStringArray(R.array.address_types));
         auto_address_type.setAdapter(addressTypeAdapter);
         ArrayAdapter<String> cityAdapter = new ArrayAdapter<>(this,android.R.layout.simple_dropdown_item_1line, getResources().getStringArray(R.array.us_cities));
         auto_city.setAdapter(cityAdapter);
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,16 +1,25 @@
 package com.hieult.foodhub.data;
 
 public class HelperClass {
-    String name,email,password;
+    String name,email,password,phoneNumber;
 
-    public HelperClass(String name, String email, String password) {
+    public HelperClass(String name, String email, String password, String phoneNumber) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.phoneNumber = phoneNumber;
     }
 
     public HelperClass(){
 
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getName() {

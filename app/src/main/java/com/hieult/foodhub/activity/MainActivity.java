@@ -1,20 +1,26 @@
 package com.hieult.foodhub.activity;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -24,9 +30,12 @@ import com.hieult.foodhub.R;
 import com.hieult.foodhub.adapters.FeaturedResHorAdapter;
 import com.hieult.foodhub.adapters.FoodHorAdapter;
 import com.hieult.foodhub.adapters.FoodPopularHorAdapter;
+import com.hieult.foodhub.adapters.SlideAdapter;
+import com.hieult.foodhub.data.StateManager;
 import com.hieult.foodhub.model.FeaturedResHorModel;
 import com.hieult.foodhub.model.FoodHorModel;
 import com.hieult.foodhub.model.FoodPopularHorModel;
+import com.hieult.foodhub.model.SlideItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,25 +46,48 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     ImageButton openDrawerButton;
     RecyclerView foodHorizontalRec;
+    SearchView searchText;
     List<FoodHorModel> foodHorModelList;
     FoodHorAdapter foodHorAdapter;
     RecyclerView featuredResHorizontalRec;
     FeaturedResHorAdapter featuredResHorAdapter;
-    RecyclerView foodPopularHorizontalRec;
-    List<FoodPopularHorModel> foodPopularHorModelList;
-    FoodPopularHorAdapter foodPopularHorAdapter;
+
     BottomNavigationView bottomNavigationView;
+    ViewPager2 viewPager2;
+    Handler slideHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         openDrawerButton = findViewById(R.id.openDrawerLayout);
         navigationView = findViewById(R.id.nav_view );
         drawerLayout = findViewById(R.id.drawer_layout);
         bottomNavigationView = findViewById(R.id.bottom_navigation_bar);
         bottomNavigationView.setSelectedItemId(R.id.bt_nav_home);
+        searchText = findViewById(R.id.searchEditText);
+        viewPager2 = findViewById(R.id.card_banner);
+        List<SlideItem> slideItems = new ArrayList<>();
+        slideItems.add(new SlideItem(R.drawable.slide1));
+        slideItems.add(new SlideItem(R.drawable.slide2));
+        slideItems.add(new SlideItem(R.drawable.slide3));
+        slideItems.add(new SlideItem(R.drawable.slide4));
+        viewPager2.setAdapter(new SlideAdapter(slideItems,viewPager2));
+        viewPager2.setClipToPadding(false);
+        viewPager2.setClipChildren(false);
+        viewPager2.setOffscreenPageLimit(4);
+        viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+
+                slideHandler.removeCallbacks(sliderRunnable);
+                slideHandler.postDelayed(sliderRunnable,2000);
+            }
+        });
+
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -93,17 +125,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
 
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,
-//                R.string.navigation_drawer_open,R.string.navigation_drawer_close);
-//        drawerLayout.addDrawerListener(toggle);
-//        toggle.syncState();
 
         foodHorizontalRec = findViewById(R.id.foot_hor_rec);
         foodHorModelList = new ArrayList<>();
         foodHorModelList.add(new FoodHorModel(R.drawable.icon_hamberger,"Burger"));
         foodHorModelList.add(new FoodHorModel(R.drawable.icon_donut,"Donuts"));
         foodHorModelList.add(new FoodHorModel(R.drawable.icon_pizza,"Pizza"));
-        foodHorModelList.add(new FoodHorModel(R.drawable.icon_hotdog,"Drink"));
+        foodHorModelList.add(new FoodHorModel(R.drawable.icon_drink,"Drink"));
         foodHorModelList.add(new FoodHorModel(R.drawable.icon_hotdog,"Snack"));
         foodHorAdapter = new FoodHorAdapter(this,foodHorModelList);
         foodHorAdapter.setOnItemClickListener(new FoodHorAdapter.OnItemClickListener() {
@@ -150,19 +178,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(foodDetail);
             }
         });
+        searchText.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent.putExtra("searchQuery", query);
+                startActivity(intent);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Xử lý sự thay đổi văn bản nếu cần
+                return true;
+            }
+        });
 
 
 
-//        foodPopularHorizontalRec = findViewById(R.id.food_popular_res_hor);
-//        foodPopularHorModelList = new ArrayList<>();
-//        foodPopularHorModelList.add(new FoodPopularHorModel(R.drawable.price_food_img1,"$5.50","4.5","Salmon Salad","Baked salmon fish"));
-//        foodPopularHorModelList.add(new FoodPopularHorModel(R.drawable.price_food_img2,"S8.25","4.5","Salmon Salad","Baked salmon fish"));
-//
-//        foodPopularHorAdapter = new FoodPopularHorAdapter(this,foodPopularHorModelList);
-//        foodPopularHorizontalRec.setAdapter(foodPopularHorAdapter);
-//        foodPopularHorizontalRec.setLayoutManager(new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false));
-//        foodPopularHorizontalRec.setHasFixedSize(true);
-//        foodPopularHorizontalRec.setNestedScrollingEnabled(false);
 
 
 
@@ -180,6 +213,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         featuredResHorAdapter.stopListening();
     }
 
+
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -188,13 +222,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
+    private Runnable sliderRunnable = new Runnable() {
+        @Override
+        public void run() {
+            viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1);
+        }
+    };
 
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_order) {
-            Intent intent = new Intent(MainActivity.this,MyOrdersActivity.class);
+            Intent intent = new Intent(MainActivity.this,MyOrderActivity.class);
             startActivity(intent);
         }else if (id == R.id.nav_profile){
             Intent intent = new Intent(MainActivity.this,MyProfileActivity.class);
@@ -210,13 +250,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    public void searchClick(View view) {
-        if (view.getId()==R.id.searchEditText){
-            Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-            startActivity(intent);
-        }else {
-            Toast.makeText(this,"Clicked outside the search box", Toast.LENGTH_SHORT).show();
-        }
-
-    }
 }

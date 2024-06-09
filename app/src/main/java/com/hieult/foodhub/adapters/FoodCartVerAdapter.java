@@ -24,6 +24,7 @@ public class FoodCartVerAdapter extends RecyclerView.Adapter<FoodCartVerAdapter.
     Context context;
     List<FoodCartVerModel> foodList;
     private int selectedItem = 0;
+    private String numberCart;
     private int numberOrder = 1;
     private OnItemClickListener onItemClickListener;
 
@@ -51,13 +52,19 @@ public class FoodCartVerAdapter extends RecyclerView.Adapter<FoodCartVerAdapter.
         holder.btn_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                numberCart = foodList.get(position).getNumberOrderCart();
+                numberOrder = Integer.parseInt(numberCart);
+                numberOrder = numberOrder - 1;
+                holder.number_order.setText("" + numberOrder);
             }
         });
         holder.btn_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                numberCart = foodList.get(position).getNumberOrderCart();
+                numberOrder = Integer.parseInt(numberCart);
+                numberOrder = numberOrder + 1;
+                holder.number_order.setText("" + numberOrder);
             }
         });
         holder.btn_close.setOnClickListener(new View.OnClickListener() {

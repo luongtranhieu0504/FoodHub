@@ -143,7 +143,7 @@ public class CartActivity extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(CartActivity.this, FoodDetailActivity.class);
+                Intent intent1 = new Intent(CartActivity.this, MainActivity.class);
                 startActivity(intent1);
             }
         });

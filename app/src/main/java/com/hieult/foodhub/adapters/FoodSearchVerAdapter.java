@@ -13,8 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.Query;
 import com.hieult.foodhub.R;
 import com.hieult.foodhub.model.FoodSearchVerModel;
+
+import java.util.List;
 
 public class FoodSearchVerAdapter extends FirebaseRecyclerAdapter<FoodSearchVerModel,FoodSearchVerAdapter.MyViewHolder> {
 
@@ -25,8 +28,11 @@ public class FoodSearchVerAdapter extends FirebaseRecyclerAdapter<FoodSearchVerM
      * @param options
      */
     private OnItemClickListener onItemClickListener;
+    private FirebaseRecyclerOptions<FoodSearchVerModel> originalOptions;
+
     public FoodSearchVerAdapter(@NonNull FirebaseRecyclerOptions options) {
         super(options);
+        this.originalOptions = options;
     }
 
     @SuppressLint("RecyclerView")
@@ -61,6 +67,7 @@ public class FoodSearchVerAdapter extends FirebaseRecyclerAdapter<FoodSearchVerM
         return new MyViewHolder(view);
     }
 
+
     class MyViewHolder extends RecyclerView.ViewHolder{
 
         ImageView img;
@@ -82,6 +89,7 @@ public class FoodSearchVerAdapter extends FirebaseRecyclerAdapter<FoodSearchVerM
             price = itemView.findViewById(R.id.txt_price_search);
         }
     }
+
     public void setOnItemClickListener(FoodSearchVerAdapter.OnItemClickListener listener) {
         this.onItemClickListener = listener;
     }
@@ -89,4 +97,5 @@ public class FoodSearchVerAdapter extends FirebaseRecyclerAdapter<FoodSearchVerM
     public interface OnItemClickListener{
         void onItemClick(int position);
     }
+
 }

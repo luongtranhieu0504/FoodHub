@@ -33,13 +33,14 @@ android {
     }
 }
 
-dependencies {
 
+
+dependencies {
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation ("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.navigation:navigation-fragment:2.7.4")
-    implementation("androidx.navigation:navigation-ui:2.7.4")
+    implementation("androidx.navigation:navigation-fragment:2.7.5")
+    implementation("androidx.navigation:navigation-ui:2.7.5")
     implementation("com.google.firebase:firebase-database:20.3.0")
     implementation("com.google.firebase:firebase-auth:22.2.0")
     testImplementation("junit:junit:4.13.2")
@@ -63,7 +64,15 @@ dependencies {
     implementation ("com.stripe:stripe-android:20.34.4")
     // sor network call
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
-    implementation ("com.google.code.gson:gson:2.8.9")
+    implementation ("com.google.code.gson:gson:2.9.0")
     implementation ("com.android.volley:volley:1.2.1")
+    //Map-box
+    implementation ("com.mapbox.mapboxsdk:mapbox-android-sdk:9.2.1")
+    implementation ("ai.nextbillion:nb-maps-android:1.0.2")
+    implementation ("ai.nextbillion:nb-navigation-android:1.1.5")
+    implementation ("com.google.android.gms:play-services-maps:18.2.0")
+
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
+    implementation ("com.makeramen:roundedimageview:2.3.0")
 
 }

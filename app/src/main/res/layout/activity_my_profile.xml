@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ProfileFragment">
+    tools:context=".activity.MyProfileActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
@@ -27,8 +27,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <Button
+            android:id="@+id/btn_edit_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/btn_sign_up_design"
+            android:drawableStart="@drawable/background_icon_cart"
+            android:drawablePadding="12dp"
+            android:paddingStart="33dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="23dp"
+            android:paddingBottom="8dp"
+            android:text="Save"
+            android:textColor="@color/white"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout24" />
+
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/btn_my_profile_back"
             android:layout_width="47dp"
             android:layout_height="46dp"
             android:layout_marginStart="6dp"
@@ -43,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5">
+            app:layout_constraintTop_toBottomOf="@+id/btn_my_profile_back">
 
             <ImageView
                 android:id="@+id/imageView11"
@@ -131,7 +152,7 @@
                 android:textColor="#9796A1" />
 
             <EditText
-                android:id="@+id/txt_full_name"
+                android:id="@+id/txt_edit_name"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:layout_marginTop="12dp"
@@ -161,7 +182,7 @@
                 android:textColor="#9796A1" />
 
             <EditText
-                android:id="@+id/txt_login_email"
+                android:id="@+id/txt_edit_email"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:layout_marginTop="12dp"
@@ -173,6 +194,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout24"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -190,14 +212,14 @@
                 android:textColor="#9796A1" />
 
             <EditText
-                android:id="@+id/txt_phone_number"
+                android:id="@+id/txt_edit_phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/text_field_design"
                 android:ems="10"
-                android:hint="Enter your email..."
-                android:inputType="textPhonetic"
+                android:hint="Enter your phone..."
+                android:inputType="phone"
                 android:paddingStart="24dp" />
 
         </LinearLayout>

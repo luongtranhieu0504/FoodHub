@@ -102,9 +102,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="551dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="30dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,9 +112,9 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_facebook"
-            android:layout_marginEnd="5dp"
-            android:layout_width="90dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
             android:layout_weight="1"
             android:background="@drawable/btn_design"
             android:drawableLeft="@drawable/icon_facebook"
@@ -154,9 +154,9 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="628dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -167,8 +167,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_ep_design"
             android:fontFamily="@font/sofiapro_light"
-            android:text="Start with email"
             android:onClick="registerEmail"
+            android:text="Start with email"
             android:textColor="@color/white" />
     </FrameLayout>
 

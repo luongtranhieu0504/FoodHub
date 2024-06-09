@@ -68,19 +68,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout10">
 
-                <EditText
-                    android:id="@+id/searchEditText"
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search_view"
                     android:layout_width="wrap_content"
                     android:layout_height="58dp"
                     android:layout_weight="1"
                     android:background="@drawable/text_find_food_design"
-                    android:drawableStart="@drawable/icon_search"
                     android:drawablePadding="10dp"
                     android:ems="10"
                     android:fontFamily="@font/sofiapro_light"
-                    android:hint="Find for food or restaurant..."
-                    android:inputType="text"
-                    android:onClick="searchClick"
+                    app:queryHint="search food here...."
+                    app:iconifiedByDefault="false"
                     android:textColor="#9AA0B4" />
 
                 <ImageButton
