@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- Always include this permission -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Include only if your app benefits from precise location access. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission
+        android:name="com.google.android.gms.permission.AD_ID"
+        tools:node="remove" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,9 +18,90 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodHub"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MyOrderActivity"
+            android:exported="false" />
+        <!-- <activity -->
+        <!-- android:name=".activity.MapDeliveryActivity" -->
+        <!-- android:exported="true"> -->
+        <!--  -->
+        <!-- </activity> -->
+        <activity
+            android:name=".activity.StateDeliveryActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".activity.PaymentTestActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.PaymentMethodActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.ChooseAddressActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SearchActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".activity.ProfileActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".activity.NotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.FavoritesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MyProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.RatingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AddAddressActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.FoodDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.FoodHub.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".activity.FacebookActivity"
+            android:exported="false"
+            android:label="Facebook"
+            android:parentActivityName=".activity.WelcomeActivity" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
+
+        <activity
+            android:name=".activity.GoogleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".activity.SignUpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +109,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true"></activity>
     </application>
 
 </manifest>
